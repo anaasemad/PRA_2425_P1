@@ -15,7 +15,7 @@ class ListArray : public List<T>{
                 		arr2[i]=arr[i];
                 		if(n>new_size){
                         		for(i;i<n;i++){
-                               			 delete arr[i];}
+                               			 arr[i]=arr[i+1];}
                			 }}
 		}
 
@@ -30,24 +30,12 @@ class ListArray : public List<T>{
         		arr[pos]=e;
 		}
 
-		void append (T e){
-			T arr[n]=e;
-		}
-
-		void prepend (T e){
-			for(int i=0; i<=n;i++){
-				T arr[i+1]=arr[i];}
-        		arr[0]=e;
-		}
-
 		ListArray():max(MINSIZE),n(0){
 			arr=new T[MINSIZE];
-			n=nullptr;
+			n=0;
 		}
 		~ListArray(){//libera memoria dinámicca reservada
-       			for(int i=0;i<n;i++){
-               			 delete[] arr[i];
-			}
+       			delete[] arr;
 		}
 
 		T operator[](int pos){
